@@ -45,7 +45,7 @@ export function ProductCard({ product, className, onClick }: ProductCardProps) {
     <motion.article
       whileHover={{ y: -2 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      onClick={() => openProduct(product.slug)}
+      onClick={openProduct}
       className={cn(
         "group relative flex cursor-pointer flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-md",
         className,
