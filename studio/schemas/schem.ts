@@ -1,0 +1,273 @@
+import { defineType, defineField } from "sanity";
+
+export const product = defineType({
+  name: "product",
+  title: "Product",
+  type: "document",
+  description: "A sellable product listed on the Trivera marketplace.",
+  fields: [
+    defineField({
+      name: "name",
+      title: "Product Name",
+      type: "string",
+      description: "The full product title shown on cards and detail pages.",
+      validation: (Rule) => Rule.required().max(140),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description: "URL-safe identifier. Must be unique.",
+      options: { source: "name", maxLength: 96 },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "shortDescription",
+      title: "Short Description",
+      type: "text",
+      description: "One-liner used on product cards and search results.",
+      rows: 2,
+      validation: (Rule) => Rule.required().max(180),
+    }),
+    defineField({
+      name: "price",
+      title: "Price (NGN)",
+      type: "number",
+      description: "Current selling price in Naira. Excluding decimals.",
+      validation: (Rule) => Rule.required().min(0),
+    }),
+    defineField({
+      name: "compareAtPrice",
+      title: "Compare-at Price (NGN)",
+      type: "number",
+      description: "Original price before discount. Leave blank if no discount.",
+    }),
+    defineField({
+      name: "currency",
+      title: "Currency",
+      type: "string",
+      options: { list: ["NGN", "USD", "GHS"], layout: "radio" },
+      initialValue: "NGN",
+    }),
+    defineField({
+      name: "freeShipping",
+      title: "Free Shipping",
+      type: "boolean",
+      description: "Show the Free Shipping badge and waive delivery fee.",
+      initialValue: true,
+    }),
+    defineField({
+      name: "stock",
+      title: "Stock Quantity",
+      type: "number",
+      validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: "rating",
+      title: "Average Rating",
+      type: "number",
+      description: "Computed average rating. Updated by a scheduled job.",
+      readOnly: true,
+    }),
+    defineField({
+      name: "reviewCount",
+      title: "Review Count",
+      type: "number",
+      readOnly: true,
+    }),
+    defineField({
+      name: "brand",
+      title: "Brand",
+      type: "string",
+    }),
+    defineField({
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "category" }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "seller",
+      title: "Seller",
+      type: "reference",
+      to: [{ type: "seller" }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "images",
+      title: "Product Images",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [{ name: "alt", title: "Alt Text", type: "string" }],
+        },
+      ],
+      validation: (Rule) => Rule.required().min(1),
+    }),
+    defineField({
+      name: "variants",
+      title: "Variant Options",
+      type: "array",
+      description: "Color, Storage, Size, RAM. Each option may carry a price delta.",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "name", title: "Option Name", type: "string" },
+            {
+              name: "options",
+              title: "Options",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    { name: "label", type: "string" },
+                    { name: "value", type: "string" },
+                    { name: "swatch", title: "Color Swatch (hex)", type: "string" },
+                    { name: "priceDelta", title: "Price Delta (NGN)", type: "number" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: "tags",
+      title: "Marketing Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: ["bestseller", "deals-of-the-day", "new-arrival", "flash-sale"],
+      },
+    }),
+    defineField({
+      name: "body",
+      title: "Description",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+            { title: "Quote", value: "blockquote" },
+          ],
+        },
+      ],
+    }),
+  ],
+  preview: {
+    select: { title: "name", subtitle: "price", media: "images.0" },
+  },
+});
+
+export const seller = defineType({
+  name: "seller",
+  title: "Seller",
+  type: "document",
+  description: "A verified marketplace seller / vendor.",
+  fields: [
+    defineField({
+      name: "name",
+      title: "Seller Name",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name" },
+    }),
+    defineField({ name: "logo", title: "Logo", type: "image" }),
+    defineField({ name: "ratingPercent", title: "Rating (%)", type: "number" }),
+    defineField({
+      name: "shipOnTimePercent",
+      title: "Ship On Time (%)",
+      type: "number",
+    }),
+    defineField({
+      name: "chatResponsePercent",
+      title: "Chat Response (%)",
+      type: "number",
+    }),
+    defineField({ name: "followerCount", title: "Followers", type: "number" }),
+    defineField({ name: "location", title: "Location", type: "string" }),
+    defineField({
+      name: "verified",
+      title: "Verified",
+      type: "boolean",
+      initialValue: true,
+    }),
+    defineField({ name: "joinedYear", title: "Joined Year", type: "number" }),
+  ],
+  preview: { select: { title: "name", subtitle: "location", media: "logo" } },
+});
+
+export const category = defineType({
+  name: "category",
+  title: "Category",
+  type: "document",
+  fields: [
+    defineField({
+      name: "name",
+      title: "Category Name",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name" },
+    }),
+    defineField({ name: "icon", title: "Icon (lucide name)", type: "string" }),
+    defineField({
+      name: "productCount",
+      title: "Product Count",
+      type: "number",
+      readOnly: true,
+    }),
+  ],
+  preview: { select: { title: "name" } },
+});
+
+export const review = defineType({
+  name: "review",
+  title: "Review",
+  type: "document",
+  fields: [
+    defineField({
+      name: "product",
+      title: "Product",
+      type: "reference",
+      to: [{ type: "product" }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({ name: "author", title: "Author", type: "string" }),
+    defineField({ name: "location", title: "Location", type: "string" }),
+    defineField({
+      name: "rating",
+      title: "Rating (1-5)",
+      type: "number",
+      validation: (Rule) => Rule.min(1).max(5),
+    }),
+    defineField({ name: "title", title: "Review Title", type: "string" }),
+    defineField({ name: "body", title: "Review Body", type: "text", rows: 4 }),
+    defineField({ name: "date", title: "Date", type: "date" }),
+    defineField({
+      name: "verified",
+      title: "Verified Purchase",
+      type: "boolean",
+      initialValue: true,
+    }),
+  ],
+  preview: { select: { title: "title", subtitle: "author", media: "rating" } },
+});
