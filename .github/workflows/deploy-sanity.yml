@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: "22"
       - run: npm install --legacy-peer-deps
-      - run: npx sanity@latest deploy --url trivera-studio --yes
+      - run: npm run deploy -- --url trivera-studio --yes
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
           SANITY_STUDIO_PROJECT_ID: "0ax9v9qq"
