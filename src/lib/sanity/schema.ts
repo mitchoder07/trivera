@@ -13,13 +13,19 @@
  * GROQ subset interpreter in client.ts can resolve fields identically.
  */
 
+interface ValidationRule {
+  required: () => ValidationRule;
+  max: (n: number) => ValidationRule;
+  min: (n: number) => ValidationRule;
+}
+
 export interface SanityField {
   name: string;
   title: string;
   type: string;
   description?: string;
   options?: Record<string, unknown>;
-  validation?: unknown;
+  validation?: (Rule: ValidationRule) => unknown;
   of?: unknown;
   to?: unknown;
 }
@@ -30,6 +36,7 @@ export interface SanityType {
   type: string;
   description?: string;
   fields: SanityField[];
+  preview?: Record<string, unknown>;
 }
 
 // Identity helpers that mirror the real Sanity `defineType` / `defineField`
@@ -52,15 +59,20 @@ export const product: SanityType = defineType({
       title: "Product Name",
       type: "string",
       description: "The full product title shown on cards and detail pages.",
-      validation: (Rule: { required: () => unknown }) => Rule.required().max(140),
+      validation: (Rule: ValidationRule) => Rule.required().max(140),
     }),
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
       description: "URL-safe identifier. Must be unique.",
-      options: { source: "name", maxLength: 96, slugify: (input: string) => input.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "") },
-      validation: (Rule: { required: () => unknown }) => Rule.required(),
+      options: {
+        source: "name",
+        maxLength: 96,
+        slugify: (input: string) =>
+          input.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
+      },
+      validation: (Rule: ValidationRule) => Rule.required(),
     }),
     defineField({
       name: "shortDescription",
@@ -68,14 +80,14 @@ export const product: SanityType = defineType({
       type: "text",
       description: "One-liner used on product cards and search results.",
       rows: 2,
-      validation: (Rule: { required: () => unknown; max: (n: number) => unknown }) => Rule.required().max(180),
+      validation: (Rule: ValidationRule) => Rule.required().max(180),
     }),
     defineField({
       name: "price",
       title: "Price (NGN)",
       type: "number",
       description: "Current selling price in Naira. Excluding decimals.",
-      validation: (Rule: { required: () => unknown; min: (n: number) => unknown }) => Rule.required().min(0),
+      validation: (Rule: ValidationRule) => Rule.required().min(0),
     }),
     defineField({
       name: "compareAtPrice",
@@ -101,7 +113,7 @@ export const product: SanityType = defineType({
       name: "stock",
       title: "Stock Quantity",
       type: "number",
-      validation: (Rule: { min: (n: number) => unknown }) => Rule.min(0),
+      validation: (Rule: ValidationRule) => Rule.min(0),
     }),
     defineField({
       name: "rating",
@@ -126,14 +138,14 @@ export const product: SanityType = defineType({
       title: "Category",
       type: "reference",
       to: [{ type: "category" }],
-      validation: (Rule: { required: () => unknown }) => Rule.required(),
+      validation: (Rule: ValidationRule) => Rule.required(),
     }),
     defineField({
       name: "seller",
       title: "Seller",
       type: "reference",
       to: [{ type: "seller" }],
-      validation: (Rule: { required: () => unknown }) => Rule.required(),
+      validation: (Rule: ValidationRule) => Rule.required(),
     }),
     defineField({
       name: "images",
@@ -149,7 +161,7 @@ export const product: SanityType = defineType({
           ],
         }),
       ],
-      validation: (Rule: { required: () => unknown; min: (n: number) => unknown }) => Rule.required().min(1),
+      validation: (Rule: ValidationRule) => Rule.required().min(1),
     }),
     defineField({
       name: "variants",
@@ -218,7 +230,12 @@ export const seller: SanityType = defineType({
   type: "document",
   description: "A verified marketplace seller / vendor.",
   fields: [
-    defineField({ name: "name", title: "Seller Name", type: "string", validation: (Rule: { required: () => unknown }) => Rule.required() }),
+    defineField({
+      name: "name",
+      title: "Seller Name",
+      type: "string",
+      validation: (Rule: ValidationRule) => Rule.required(),
+    }),
     defineField({ name: "slug", title: "Slug", type: "slug", options: { source: "name" } }),
     defineField({ name: "logo", title: "Logo", type: "image" }),
     defineField({ name: "ratingPercent", title: "Rating (%)", type: "number" }),
@@ -237,7 +254,12 @@ export const category: SanityType = defineType({
   title: "Category",
   type: "document",
   fields: [
-    defineField({ name: "name", title: "Category Name", type: "string", validation: (Rule: { required: () => unknown }) => Rule.required() }),
+    defineField({
+      name: "name",
+      title: "Category Name",
+      type: "string",
+      validation: (Rule: ValidationRule) => Rule.required(),
+    }),
     defineField({ name: "slug", title: "Slug", type: "slug", options: { source: "name" } }),
     defineField({ name: "icon", title: "Icon (lucide name)", type: "string" }),
     defineField({ name: "productCount", title: "Product Count", type: "number", readOnly: true }),
@@ -250,10 +272,21 @@ export const review: SanityType = defineType({
   title: "Review",
   type: "document",
   fields: [
-    defineField({ name: "product", title: "Product", type: "reference", to: [{ type: "product" }], validation: (Rule: { required: () => unknown }) => Rule.required() }),
+    defineField({
+      name: "product",
+      title: "Product",
+      type: "reference",
+      to: [{ type: "product" }],
+      validation: (Rule: ValidationRule) => Rule.required(),
+    }),
     defineField({ name: "author", title: "Author", type: "string" }),
     defineField({ name: "location", title: "Location", type: "string" }),
-    defineField({ name: "rating", title: "Rating (1-5)", type: "number", validation: (Rule: { min: (n: number) => unknown; max: (n: number) => unknown }) => Rule.min(1).max(5) }),
+    defineField({
+      name: "rating",
+      title: "Rating (1-5)",
+      type: "number",
+      validation: (Rule: ValidationRule) => Rule.min(1).max(5),
+    }),
     defineField({ name: "title", title: "Review Title", type: "string" }),
     defineField({ name: "body", title: "Review Body", type: "text", rows: 4 }),
     defineField({ name: "date", title: "Date", type: "date" }),
