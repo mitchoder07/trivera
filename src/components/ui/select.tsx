@@ -77,25 +77,32 @@ export function Select({ value, onValueChange, children, disabled }: SelectProps
   );
 }
 
-export function SelectContent({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+interface SelectContentProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function SelectContent({ children, className }: SelectContentProps) {
+  return <div className={className}>{children}</div>;
 }
 
 interface SelectItemProps {
   value: string;
   children: React.ReactNode;
+  className?: string;
   onSelect?: (value: string) => void;
   isSelected?: string;
 }
 
-export function SelectItem({ value, children, onSelect, isSelected }: SelectItemProps) {
+export function SelectItem({ value, children, className, onSelect, isSelected }: SelectItemProps) {
   return (
     <button
       type="button"
       onClick={() => onSelect?.(value)}
       className={cn(
         "flex w-full items-center px-3 py-1.5 text-left text-sm hover:bg-orange-50",
-        isSelected === value && "bg-orange-100 font-medium"
+        isSelected === value && "bg-orange-100 font-medium",
+        className
       )}
     >
       {children}
@@ -103,10 +110,20 @@ export function SelectItem({ value, children, onSelect, isSelected }: SelectItem
   );
 }
 
-export function SelectTrigger({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+interface SelectTriggerProps {
+  children: React.ReactNode;
+  className?: string;
 }
 
-export function SelectValue({ placeholder }: { placeholder?: string }) {
-  return <span className="text-gray-400">{placeholder}</span>;
+export function SelectTrigger({ children, className }: SelectTriggerProps) {
+  return <div className={className}>{children}</div>;
+}
+
+interface SelectValueProps {
+  placeholder?: string;
+  className?: string;
+}
+
+export function SelectValue({ placeholder, className }: SelectValueProps) {
+  return <span className={cn("text-gray-400", className)}>{placeholder}</span>;
 }
