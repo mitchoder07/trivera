@@ -14,10 +14,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
-          cache-dependency-path: studio/package-lock.json
-      - run: npm ci
-      - run: npx sanity deploy
+          node-version: "22"
+      - run: npm install
+      - run: npx sanity@latest deploy --url trivera-studio --yes
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+          SANITY_STUDIO_PROJECT_ID: "0ax9v9qq"
+          SANITY_STUDIO_DATASET: "production"
