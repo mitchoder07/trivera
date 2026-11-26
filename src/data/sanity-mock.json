@@ -1,0 +1,1175 @@
+{
+  "products": [
+    {
+      "_id": "prod-samsung-a14",
+      "_type": "product",
+      "_createdAt": "2025-10-01T08:00:00Z",
+      "_updatedAt": "2025-11-20T10:30:00Z",
+      "_rev": "rev-a14-3",
+      "name": "Samsung Galaxy A14 (4GB RAM, 128GB ROM) - 6.6\" Display",
+      "slug": {
+        "_type": "slug",
+        "current": "samsung-galaxy-a14"
+      },
+      "shortDescription": "Big screen, big battery, big value. The Galaxy A14 brings a 6.6 inch FHD+ display, 50MP triple camera and a 5000mAh battery that lasts all day.",
+      "price": 132500,
+      "compareAtPrice": 165000,
+      "currency": "NGN",
+      "freeShipping": true,
+      "stock": 38,
+      "rating": 4.4,
+      "reviewCount": 214,
+      "brand": "Samsung",
+      "category": {
+        "_ref": "cat-phones",
+        "_type": "reference"
+      },
+      "seller": {
+        "_ref": "seller-techhub-ng",
+        "_type": "reference"
+      },
+      "images": [
+        {
+          "_type": "image",
+          "_key": "img-a14-1",
+          "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&auto=format&fit=crop",
+          "alt": "Samsung Galaxy A14 front view on white background"
+        },
+        {
+          "_type": "image",
+          "_key": "img-a14-2",
+          "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80&auto=format&fit=crop",
+          "alt": "Samsung Galaxy A14 back showing triple camera"
+        },
+        {
+          "_type": "image",
+          "_key": "img-a14-3",
+          "url": "https://images.unsplash.com/photo-1574944985070-8f3ebc7b9389?w=800&q=80&auto=format&fit=crop",
+          "alt": "Samsung Galaxy A14 side angle"
+        }
+      ],
+      "variants": [
+        {
+          "_key": "var-color",
+          "name": "Color",
+          "options": [
+            {
+              "label": "Black",
+              "value": "black",
+              "swatch": "#1f2937"
+            },
+            {
+              "label": "Light Green",
+              "value": "light-green",
+              "swatch": "#86efac"
+            },
+            {
+              "label": "Silver",
+              "value": "silver",
+              "swatch": "#e5e7eb"
+            }
+          ]
+        },
+        {
+          "_key": "var-storage",
+          "name": "Storage",
+          "options": [
+            {
+              "label": "64GB",
+              "value": "64gb",
+              "priceDelta": -15000
+            },
+            {
+              "label": "128GB",
+              "value": "128gb",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "bestseller",
+        "deals-of-the-day"
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "_key": "b1",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s1",
+              "text": "The Samsung Galaxy A14 is built for the everyday Nigerian who wants a dependable smartphone without breaking the bank. The 6.6 inch FHD+ display is sharp enough for movies and football matches on the go, and the 5000mAh battery easily handles a full day of WhatsApp, Twitter and calls."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b2",
+          "style": "h2",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s2",
+              "text": "Key Features"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b3",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s3",
+              "text": "6.6 inch FHD+ display, 50MP main camera with 5MP ultrawide and 2MP depth, MediaTek Helio G80, 4GB RAM, 128GB storage expandable to 1TB, 5000mAh battery, side-mounted fingerprint, One UI 5.1 on Android 13."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b4",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s4",
+              "text": "What's in the box: Galaxy A14 handset, 15W travel adapter, USB-C cable, ejector pin, quick start guide. SIM: Dual Nano-SIM. Warranty: 2 years manufacturer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "prod-tecno-camon20",
+      "_type": "product",
+      "_createdAt": "2025-09-15T08:00:00Z",
+      "_updatedAt": "2025-11-18T14:00:00Z",
+      "_rev": "rev-camon-2",
+      "name": "Tecno Camon 20 (8GB RAM, 256GB ROM) - 6.7\" AMOLED",
+      "slug": {
+        "_type": "slug",
+        "current": "tecno-camon-20"
+      },
+      "shortDescription": "Camera king in its class. 64MP RGBW night camera, AMOLED display, 8GB RAM and 256GB storage. Built for content creators in Lagos and beyond.",
+      "price": 178900,
+      "compareAtPrice": 215000,
+      "currency": "NGN",
+      "freeShipping": true,
+      "stock": 24,
+      "rating": 4.6,
+      "reviewCount": 168,
+      "brand": "Tecno",
+      "category": {
+        "_ref": "cat-phones",
+        "_type": "reference"
+      },
+      "seller": {
+        "_ref": "seller-phone-plaza",
+        "_type": "reference"
+      },
+      "images": [
+        {
+          "_type": "image",
+          "_key": "img-camon-1",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/c209b88dfdc4.jpg",
+          "alt": "Tecno Camon 20 front display"
+        },
+        {
+          "_type": "image",
+          "_key": "img-camon-2",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/e29cb286fc3f.jpg",
+          "alt": "Tecno Camon 20 camera module"
+        }
+      ],
+      "variants": [
+        {
+          "_key": "var-color",
+          "name": "Color",
+          "options": [
+            {
+              "label": "Predator Black",
+              "value": "black",
+              "swatch": "#111827"
+            },
+            {
+              "label": "Serenity Blue",
+              "value": "blue",
+              "swatch": "#3b82f6"
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "_key": "b1",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s1",
+              "text": "The Tecno Camon 20 is a photography-first smartphone. The 64MP RGBW Pro sensor pulls in more light so your night shots on Victoria Island actually come out clear. The 6.7 inch AMOLED screen is great for streaming Premier League highlights."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b2",
+          "style": "h2",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s2",
+              "text": "Why people buy it"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b3",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s3",
+              "text": "8GB RAM plus 8GB virtual RAM, 256GB storage, 64MP RGBW rear camera, 32MP selfie, 5000mAh battery with 33W fast charge, Helio G99, IP53 splash resistance, side fingerprint."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "prod-hp-pavilion-14",
+      "_type": "product",
+      "_createdAt": "2025-08-20T08:00:00Z",
+      "_updatedAt": "2025-11-10T09:00:00Z",
+      "_rev": "rev-hp-2",
+      "name": "HP Pavilion 14 (Intel Core i5, 8GB RAM, 512GB SSD) - Silver",
+      "slug": {
+        "_type": "slug",
+        "current": "hp-pavilion-14-i5"
+      },
+      "shortDescription": "Thin, light and fast enough for work and study. Intel Core i5 12th gen, 8GB RAM, 512GB SSD and a 14 inch FHD anti-glare display.",
+      "price": 425000,
+      "compareAtPrice": 510000,
+      "currency": "NGN",
+      "freeShipping": false,
+      "stock": 12,
+      "rating": 4.3,
+      "reviewCount": 87,
+      "brand": "HP",
+      "category": {
+        "_ref": "cat-laptops",
+        "_type": "reference"
+      },
+      "seller": {
+        "_ref": "seller-techhub-ng",
+        "_type": "reference"
+      },
+      "images": [
+        {
+          "_type": "image",
+          "_key": "img-hp-1",
+          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&auto=format&fit=crop",
+          "alt": "HP Pavilion 14 laptop open on desk"
+        },
+        {
+          "_type": "image",
+          "_key": "img-hp-2",
+          "url": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80&auto=format&fit=crop",
+          "alt": "HP Pavilion 14 keyboard close up"
+        }
+      ],
+      "variants": [
+        {
+          "_key": "var-ram",
+          "name": "RAM",
+          "options": [
+            {
+              "label": "8GB",
+              "value": "8gb",
+              "priceDelta": 0
+            },
+            {
+              "label": "16GB",
+              "value": "16gb",
+              "priceDelta": 65000
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "deals-of-the-day"
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "_key": "b1",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s1",
+              "text": "The HP Pavilion 14 is a solid everyday laptop for students at Unilag and professionals working from home. The 12th gen Intel Core i5 handles Excel, Chrome with 30 tabs and Zoom calls without breaking a sweat."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b2",
+          "style": "h2",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s2",
+              "text": "Specifications"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b3",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s3",
+              "text": "Intel Core i5-1235U, 8GB DDR4, 512GB NVMe SSD, 14 inch FHD IPS anti-glare, Intel Iris Xe graphics, backlit keyboard, fingerprint reader, Windows 11 Home, 1.41kg."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "prod-lenovo-ideapad-3",
+      "_type": "product",
+      "_createdAt": "2025-07-10T08:00:00Z",
+      "_updatedAt": "2025-11-05T11:00:00Z",
+      "_rev": "rev-lenovo-2",
+      "name": "Lenovo IdeaPad 3 (AMD Ryzen 5, 8GB RAM, 256GB SSD)",
+      "slug": {
+        "_type": "slug",
+        "current": "lenovo-ideapad-3-ryzen5"
+      },
+      "shortDescription": "Budget-friendly Ryzen 5 laptop with a clean 15.6 inch FHD screen. Great for remote work and online classes.",
+      "price": 365000,
+      "compareAtPrice": 420000,
+      "currency": "NGN",
+      "freeShipping": false,
+      "stock": 9,
+      "rating": 4.2,
+      "reviewCount": 54,
+      "brand": "Lenovo",
+      "category": {
+        "_ref": "cat-laptops",
+        "_type": "reference"
+      },
+      "seller": {
+        "_ref": "seller-computing-depot",
+        "_type": "reference"
+      },
+      "images": [
+        {
+          "_type": "image",
+          "_key": "img-lenovo-1",
+          "url": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&auto=format&fit=crop",
+          "alt": "Lenovo IdeaPad 3 laptop on white background"
+        },
+        {
+          "_type": "image",
+          "_key": "img-lenovo-2",
+          "url": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&q=80&auto=format&fit=crop",
+          "alt": "Lenovo IdeaPad 3 side profile"
+        }
+      ],
+      "variants": [],
+      "tags": [],
+      "body": [
+        {
+          "_type": "block",
+          "_key": "b1",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s1",
+              "text": "The Lenovo IdeaPad 3 gives you Ryzen 5 performance at a fair price. The 15.6 inch FHD screen is easy on the eyes for long work sessions, and the physical webcam shutter is a nice privacy touch."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b2",
+          "style": "h2",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s2",
+              "text": "Specifications"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b3",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s3",
+              "text": "AMD Ryzen 5 5500U, 8GB DDR4, 256GB SSD, 15.6 inch FHD, AMD Radeon graphics, backlit keyboard, Windows 11 Home, 1.65kg."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "prod-ankara-gown",
+      "_type": "product",
+      "_createdAt": "2025-10-25T08:00:00Z",
+      "_updatedAt": "2025-11-19T16:00:00Z",
+      "_rev": "rev-ankara-2",
+      "name": "Ready-to-Wear Ankara Gown (Multi-Color Print, Sizes S to XL)",
+      "slug": {
+        "_type": "slug",
+        "current": "ankara-gown-multi-color"
+      },
+      "shortDescription": "Handmade Ankara gown with vibrant wax print. Tailored fit, knee-length, perfect for owambe and Sunday service.",
+      "price": 18500,
+      "compareAtPrice": 26000,
+      "currency": "NGN",
+      "freeShipping": true,
+      "stock": 60,
+      "rating": 4.7,
+      "reviewCount": 142,
+      "brand": "Adire by Tola",
+      "category": {
+        "_ref": "cat-fashion",
+        "_type": "reference"
+      },
+      "seller": {
+        "_ref": "seller-adire-by-tola",
+        "_type": "reference"
+      },
+      "images": [
+        {
+          "_type": "image",
+          "_key": "img-ankara-1",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/54960d91ac8a.jpeg",
+          "alt": "Ankara print gown on model"
+        },
+        {
+          "_type": "image",
+          "_key": "img-ankara-2",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/a355ab6559ec.jpg",
+          "alt": "Ankara gown detail of wax print"
+        }
+      ],
+      "variants": [
+        {
+          "_key": "var-size",
+          "name": "Size",
+          "options": [
+            {
+              "label": "Small",
+              "value": "s"
+            },
+            {
+              "label": "Medium",
+              "value": "m"
+            },
+            {
+              "label": "Large",
+              "value": "l"
+            },
+            {
+              "label": "XL",
+              "value": "xl"
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "deals-of-the-day",
+        "bestseller"
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "_key": "b1",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s1",
+              "text": "This Ankara gown is cut and sewn in Lagos by Tola and her team. The 100% cotton wax print is soft, breathable and holds color wash after wash. The knee-length cut works for both casual Fridays and Sunday service."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b2",
+          "style": "h2",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s2",
+              "text": "Care Instructions"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b3",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s3",
+              "text": "Machine wash cold with similar colors. Do not bleach. Iron on medium heat. Hang to dry."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "prod-agbada-set",
+      "_type": "product",
+      "_createdAt": "2025-09-30T08:00:00Z",
+      "_updatedAt": "2025-11-12T13:00:00Z",
+      "_rev": "rev-agbada-2",
+      "name": "3-Piece Agbada Set (Embroidered, Atiku Fabric) - Men",
+      "slug": {
+        "_type": "slug",
+        "current": "agbada-set-embroidered-men"
+      },
+      "shortDescription": "Traditional 3-piece Agbada with hand-stitched embroidery. Includes top, trousers and outer robe. Atiku fabric, breathable for the heat.",
+      "price": 45000,
+      "compareAtPrice": 58000,
+      "currency": "NGN",
+      "freeShipping": true,
+      "stock": 30,
+      "rating": 4.8,
+      "reviewCount": 96,
+      "brand": "Mansa Tailors",
+      "category": {
+        "_ref": "cat-fashion",
+        "_type": "reference"
+      },
+      "seller": {
+        "_ref": "seller-adire-by-tola",
+        "_type": "reference"
+      },
+      "images": [
+        {
+          "_type": "image",
+          "_key": "img-agbada-1",
+          "url": "https://images.unsplash.com/photo-1622519407650-3df9883f76a5?w=800&q=80&auto=format&fit=crop",
+          "alt": "Men wearing embroidered Agbada set"
+        },
+        {
+          "_type": "image",
+          "_key": "img-agbada-2",
+          "url": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80&auto=format&fit=crop",
+          "alt": "Agbada embroidery detail"
+        }
+      ],
+      "variants": [
+        {
+          "_key": "var-size",
+          "name": "Size",
+          "options": [
+            {
+              "label": "M (40)",
+              "value": "m"
+            },
+            {
+              "label": "L (42)",
+              "value": "l"
+            },
+            {
+              "label": "XL (44)",
+              "value": "xl"
+            },
+            {
+              "label": "XXL (46)",
+              "value": "xxl"
+            }
+          ]
+        },
+        {
+          "_key": "var-color",
+          "name": "Color",
+          "options": [
+            {
+              "label": "Cream",
+              "value": "cream",
+              "swatch": "#f5f5dc"
+            },
+            {
+              "label": "Sky Blue",
+              "value": "sky",
+              "swatch": "#7dd3fc"
+            },
+            {
+              "label": "Wine",
+              "value": "wine",
+              "swatch": "#7f1d1d"
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "_key": "b1",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s1",
+              "text": "This 3-piece Agbada set is tailored by Mansa Tailors in Kano. The Atiku fabric drapes well and breathes in the northern heat. Hand-stitched embroidery on the chest and sleeves makes it wedding-ready out of the box."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "prod-binatone-blender",
+      "_type": "product",
+      "_createdAt": "2025-08-05T08:00:00Z",
+      "_updatedAt": "2025-11-15T10:00:00Z",
+      "_rev": "rev-blender-2",
+      "name": "Binatone 1.5L Glass Jar Blender (BLG-455) - 450W",
+      "slug": {
+        "_type": "slug",
+        "current": "binatone-blender-blg-455"
+      },
+      "shortDescription": "Tear through pepper, beans and dry spices with the 450W motor and stainless steel blades. 1.5L unbreakable glass jar.",
+      "price": 32500,
+      "compareAtPrice": 41000,
+      "currency": "NGN",
+      "freeShipping": true,
+      "stock": 45,
+      "rating": 4.5,
+      "reviewCount": 203,
+      "brand": "Binatone",
+      "category": {
+        "_ref": "cat-home-appliances",
+        "_type": "reference"
+      },
+      "seller": {
+        "_ref": "seller-computing-depot",
+        "_type": "reference"
+      },
+      "images": [
+        {
+          "_type": "image",
+          "_key": "img-blender-1",
+          "url": "https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=800&q=80&auto=format&fit=crop",
+          "alt": "Binatone blender with glass jar on counter"
+        },
+        {
+          "_type": "image",
+          "_key": "img-blender-2",
+          "url": "https://images.unsplash.com/photo-1604908554049-ba9b6f6b0b75?w=800&q=80&auto=format&fit=crop",
+          "alt": "Blender base and blades"
+        }
+      ],
+      "variants": [],
+      "tags": [
+        "deals-of-the-day"
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "_key": "b1",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s1",
+              "text": "The Binatone BLG-455 is the workhorse blender in many Nigerian kitchens. The 450W motor handles dry pepper and beans for akara without overheating, and the 1.5L glass jar is easy to clean and won't absorb food smell."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b2",
+          "style": "h2",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s2",
+              "text": "What's in the box"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b3",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s3",
+              "text": "Motor base, 1.5L glass jar with lid, 2-speed control plus pulse, stainless steel 4-blade assembly, measuring cup. 2 year Binatone Nigeria warranty."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "prod-shea-butter-cream",
+      "_type": "product",
+      "_createdAt": "2025-10-10T08:00:00Z",
+      "_updatedAt": "2025-11-17T15:00:00Z",
+      "_rev": "rev-shea-2",
+      "name": "Raw Shea Butter Cream (250g) - Unrefined, Hand-Processed in Kaduna",
+      "slug": {
+        "_type": "slug",
+        "current": "raw-shea-butter-cream-250g"
+      },
+      "shortDescription": "100% raw unrefined shea butter, hand-processed by a women's cooperative in Kaduna. No additives. Deep moisturizer for skin and hair.",
+      "price": 7500,
+      "compareAtPrice": 9500,
+      "currency": "NGN",
+      "freeShipping": true,
+      "stock": 120,
+      "rating": 4.9,
+      "reviewCount": 311,
+      "brand": "Kaduna Glow",
+      "category": {
+        "_ref": "cat-beauty",
+        "_type": "reference"
+      },
+      "seller": {
+        "_ref": "seller-adire-by-tola",
+        "_type": "reference"
+      },
+      "images": [
+        {
+          "_type": "image",
+          "_key": "img-shea-1",
+          "url": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80&auto=format&fit=crop",
+          "alt": "Shea butter cream in glass jar"
+        },
+        {
+          "_type": "image",
+          "_key": "img-shea-2",
+          "url": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&q=80&auto=format&fit=crop",
+          "alt": "Shea butter texture scoop"
+        }
+      ],
+      "variants": [
+        {
+          "_key": "var-size",
+          "name": "Size",
+          "options": [
+            {
+              "label": "100g",
+              "value": "100g",
+              "priceDelta": -2500
+            },
+            {
+              "label": "250g",
+              "value": "250g",
+              "priceDelta": 0
+            },
+            {
+              "label": "500g",
+              "value": "500g",
+              "priceDelta": 6000
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "_key": "b1",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s1",
+              "text": "This is raw, unrefined shea butter straight from the Vitellaria paradoxa trees of Kaduna State. A women's cooperative hand-cracks, roasts and whips the nuts using traditional methods, so the cream keeps its full vitamin A and E content. No perfumes, no preservatives, no bleaching."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b2",
+          "style": "h2",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s2",
+              "text": "How to use"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "b3",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "_key": "s3",
+              "text": "Warm a small amount between your palms and massage into skin or scalp. Solid in cool rooms, melts on contact. Use morning and night for dry skin, eczema patches and stretch marks."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sellers": [
+    {
+      "_id": "seller-techhub-ng",
+      "_type": "seller",
+      "name": "TechHub Nigeria",
+      "slug": {
+        "_type": "slug",
+        "current": "techhub-nigeria"
+      },
+      "logo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=120&q=80&auto=format&fit=crop"
+        }
+      },
+      "ratingPercent": 99,
+      "shipOnTimePercent": 98,
+      "chatResponsePercent": 99,
+      "followerCount": 18420,
+      "location": "Computer Village, Ikeja, Lagos",
+      "verified": true,
+      "joinedYear": 2019
+    },
+    {
+      "_id": "seller-phone-plaza",
+      "_type": "seller",
+      "name": "Phone Plaza Online",
+      "slug": {
+        "_type": "slug",
+        "current": "phone-plaza-online"
+      },
+      "logo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=120&q=80&auto=format&fit=crop"
+        }
+      },
+      "ratingPercent": 97,
+      "shipOnTimePercent": 96,
+      "chatResponsePercent": 94,
+      "followerCount": 9870,
+      "location": "Trade Fair Complex, Lagos",
+      "verified": true,
+      "joinedYear": 2020
+    },
+    {
+      "_id": "seller-computing-depot",
+      "_type": "seller",
+      "name": "Computing Depot",
+      "slug": {
+        "_type": "slug",
+        "current": "computing-depot"
+      },
+      "logo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=120&q=80&auto=format&fit=crop"
+        }
+      },
+      "ratingPercent": 96,
+      "shipOnTimePercent": 95,
+      "chatResponsePercent": 92,
+      "followerCount": 6240,
+      "location": "Abuja Garki Market, FCT",
+      "verified": true,
+      "joinedYear": 2021
+    },
+    {
+      "_id": "seller-adire-by-tola",
+      "_type": "seller",
+      "name": "Adire by Tola",
+      "slug": {
+        "_type": "slug",
+        "current": "adire-by-tola"
+      },
+      "logo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=120&q=80&auto=format&fit=crop"
+        }
+      },
+      "ratingPercent": 99,
+      "shipOnTimePercent": 99,
+      "chatResponsePercent": 99,
+      "followerCount": 25100,
+      "location": "Yaba, Lagos",
+      "verified": true,
+      "joinedYear": 2018
+    }
+  ],
+  "categories": [
+    {
+      "_id": "cat-phones",
+      "_type": "category",
+      "name": "Phones & Tablets",
+      "slug": {
+        "_type": "slug",
+        "current": "phones-tablets"
+      },
+      "icon": "smartphone",
+      "productCount": 0
+    },
+    {
+      "_id": "cat-laptops",
+      "_type": "category",
+      "name": "Computing & Laptops",
+      "slug": {
+        "_type": "slug",
+        "current": "computing-laptops"
+      },
+      "icon": "laptop",
+      "productCount": 0
+    },
+    {
+      "_id": "cat-fashion",
+      "_type": "category",
+      "name": "Fashion",
+      "slug": {
+        "_type": "slug",
+        "current": "fashion"
+      },
+      "icon": "shirt",
+      "productCount": 0
+    },
+    {
+      "_id": "cat-home-appliances",
+      "_type": "category",
+      "name": "Home & Appliances",
+      "slug": {
+        "_type": "slug",
+        "current": "home-appliances"
+      },
+      "icon": "sofa",
+      "productCount": 0
+    },
+    {
+      "_id": "cat-beauty",
+      "_type": "category",
+      "name": "Health & Beauty",
+      "slug": {
+        "_type": "slug",
+        "current": "health-beauty"
+      },
+      "icon": "sparkles",
+      "productCount": 0
+    },
+    {
+      "_id": "cat-electronics",
+      "_type": "category",
+      "name": "Electronics",
+      "slug": {
+        "_type": "slug",
+        "current": "electronics"
+      },
+      "icon": "tv",
+      "productCount": 0
+    }
+  ],
+  "reviews": [
+    {
+      "_id": "rev-1",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-samsung-a14",
+        "_type": "reference"
+      },
+      "author": "Chinedu O.",
+      "location": "Enugu",
+      "rating": 5,
+      "title": "Worth every naira",
+      "body": "Battery lasts me a full day of WhatsApp and YouTube. Camera is decent in daylight. Delivered to Enugu in 2 days.",
+      "date": "2025-11-02",
+      "verified": true
+    },
+    {
+      "_id": "rev-2",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-samsung-a14",
+        "_type": "reference"
+      },
+      "author": "Aisha M.",
+      "location": "Kano",
+      "rating": 4,
+      "title": "Good phone, slight lag",
+      "body": "Phone is good for the price. Sometimes lags when I switch between apps quickly but nothing serious.",
+      "date": "2025-10-28",
+      "verified": true
+    },
+    {
+      "_id": "rev-3",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-tecno-camon20",
+        "_type": "reference"
+      },
+      "author": "Tunde A.",
+      "location": "Ibadan",
+      "rating": 5,
+      "title": "Camera is something else",
+      "body": "Night photos are clear. I shoot content for my small business and this has been a game changer.",
+      "date": "2025-11-10",
+      "verified": true
+    },
+    {
+      "_id": "rev-4",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-hp-pavilion-14",
+        "_type": "reference"
+      },
+      "author": "Blessing E.",
+      "location": "Port Harcourt",
+      "rating": 4,
+      "title": "Solid work laptop",
+      "body": "Runs my accounting software smoothly. Only complaint is the speakers are a bit weak.",
+      "date": "2025-10-15",
+      "verified": true
+    },
+    {
+      "_id": "rev-5",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-lenovo-ideapad-3",
+        "_type": "reference"
+      },
+      "author": "Ibrahim S.",
+      "location": "Abuja",
+      "rating": 4,
+      "title": "Good for the price",
+      "body": "Bought this for online classes. Screen is bright, keyboard is comfortable. Wish it had more SSD space.",
+      "date": "2025-10-20",
+      "verified": true
+    },
+    {
+      "_id": "rev-6",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-ankara-gown",
+        "_type": "reference"
+      },
+      "author": "Funke B.",
+      "location": "Lagos",
+      "rating": 5,
+      "title": "Beautiful stitching",
+      "body": "Wore it to a wedding last weekend and got so many compliments. Fit was true to size.",
+      "date": "2025-11-05",
+      "verified": true
+    },
+    {
+      "_id": "rev-7",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-ankara-gown",
+        "_type": "reference"
+      },
+      "author": "Ngozi D.",
+      "location": "Onitsha",
+      "rating": 5,
+      "title": "Color is exactly as pictured",
+      "body": "Sometimes online fabric colors lie but this one is spot on. Quality cotton too.",
+      "date": "2025-10-30",
+      "verified": true
+    },
+    {
+      "_id": "rev-8",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-agbada-set",
+        "_type": "reference"
+      },
+      "author": "Yusuf K.",
+      "location": "Kaduna",
+      "rating": 5,
+      "title": "Embroidery is top notch",
+      "body": "Bought the cream for Eid. The hand stitching is clean and the fabric breathes well in the heat.",
+      "date": "2025-11-01",
+      "verified": true
+    },
+    {
+      "_id": "rev-9",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-binatone-blender",
+        "_type": "reference"
+      },
+      "author": "Mrs. Okafor",
+      "location": "Awka",
+      "rating": 5,
+      "title": "Pepper blender of life",
+      "body": "This thing grinds dry pepper like nothing. Going on 8 months strong with daily use.",
+      "date": "2025-11-08",
+      "verified": true
+    },
+    {
+      "_id": "rev-10",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-binatone-blender",
+        "_type": "reference"
+      },
+      "author": "Emeka N.",
+      "location": "Asaba",
+      "rating": 4,
+      "title": "Powerful but loud",
+      "body": "Blends well, no doubt. But it is loud, early morning pepper grinding will wake the house.",
+      "date": "2025-10-22",
+      "verified": true
+    },
+    {
+      "_id": "rev-11",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-shea-butter-cream",
+        "_type": "reference"
+      },
+      "author": "Halima R.",
+      "location": "Sokoto",
+      "rating": 5,
+      "title": "Real raw shea, no fake",
+      "body": "You can tell this is the real thing. The smell is nutty and natural, not perfumed. My dry skin thanks me.",
+      "date": "2025-11-12",
+      "verified": true
+    },
+    {
+      "_id": "rev-12",
+      "_type": "review",
+      "product": {
+        "_ref": "prod-shea-butter-cream",
+        "_type": "reference"
+      },
+      "author": "Grace A.",
+      "location": "Benin City",
+      "rating": 5,
+      "title": "Cleared my eczema in 2 weeks",
+      "body": "I was skeptical but the patch on my elbow cleared up. Will repurchase the 500g next time.",
+      "date": "2025-10-25",
+      "verified": true
+    }
+  ]
+}
