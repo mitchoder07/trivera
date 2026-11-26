@@ -5,6 +5,7 @@ export default defineCliConfig({
     projectId: process.env.SANITY_STUDIO_PROJECT_ID || "0ax9v9qq",
     dataset: process.env.SANITY_STUDIO_DATASET || "production",
   },
+  studioHost: "trivera-studio",
   deployment: {
     autoUpdates: true,
   },
