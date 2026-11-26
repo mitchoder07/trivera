@@ -4,10 +4,6 @@
     "app": {
       "root": ".",
       "framework": "nextjs"
-    },
-    "studio": {
-      "root": "studio",
-      "framework": "sanity"
     }
   },
   "rewrites": [
