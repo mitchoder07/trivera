@@ -15,6 +15,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "sonner";
 import { useCartStore } from "@/store/cart-store";
 import { useViewStore } from "@/store/view-store";
 import { useCategories } from "./use-sanity";
@@ -26,7 +27,7 @@ import { SanityStudioModal } from "./sanity-studio-modal";
 export function Header() {
   const itemCount = useCartStore((s) => s.itemCount());
   const openCart = useCartStore((s) => s.open);
-  const { view, goHome, openProduct, setSearch, setCategory } = useViewStore();
+  const { view, goHome, setSearch, setCategory } = useViewStore();
   const [searchInput, setSearchInput] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
@@ -47,19 +48,36 @@ export function Header() {
     setMobileMenuOpen(false);
   };
 
+  // Toast for not-yet-functional links on the demo
+  const comingSoon = (label: string) => {
+    toast(`${label} is not part of this demo. This is a portfolio showcase of the Sanity CMS + Next.js architecture.`, {
+      position: "top-center",
+    });
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-white shadow-sm">
       {/* Utility bar */}
       <div className="hidden border-b border-border bg-neutral-900 text-white md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 text-xs">
           <div className="flex items-center gap-4 py-1.5">
-            <button className="flex items-center gap-1 transition-colors hover:text-cta">
+            <button
+              onClick={() => comingSoon("Sell on Trivera")}
+              className="flex items-center gap-1 transition-colors hover:text-cta"
+            >
               <Truck className="size-3" /> Sell on Trivera
             </button>
-            <button className="flex items-center gap-1 transition-colors hover:text-cta">
+            <button
+              onClick={() => comingSoon("Customer Care")}
+              className="flex items-center gap-1 transition-colors hover:text-cta"
+            >
               <Phone className="size-3" /> Customer Care
             </button>
-            <button className="flex items-center gap-1 transition-colors hover:text-cta">
+            <button
+              onClick={() => comingSoon("Track My Order")}
+              className="flex items-center gap-1 transition-colors hover:text-cta"
+            >
               <ListOrdered className="size-3" /> Track My Order
             </button>
           </div>
@@ -71,10 +89,16 @@ export function Header() {
               <LayoutDashboard className="size-3" /> View Sanity Studio Demo
             </button>
             <span className="text-white/30">|</span>
-            <button className="flex items-center gap-1 transition-colors hover:text-cta">
+            <button
+              onClick={() => comingSoon("Log In")}
+              className="flex items-center gap-1 transition-colors hover:text-cta"
+            >
               <User className="size-3" /> Log In
             </button>
-            <button className="rounded bg-white/10 px-2 py-0.5 font-medium transition-colors hover:bg-white/20">
+            <button
+              onClick={() => comingSoon("Sign Up")}
+              className="rounded bg-white/10 px-2 py-0.5 font-medium transition-colors hover:bg-white/20"
+            >
               Sign Up
             </button>
           </div>
@@ -117,12 +141,14 @@ export function Header() {
 
         <div className="ml-auto flex items-center gap-1">
           <button
+            onClick={() => comingSoon("Wishlist")}
             className="hidden rounded-md p-2 text-foreground hover:bg-accent sm:block"
             aria-label="Wishlist"
           >
             <Heart className="size-5" />
           </button>
           <button
+            onClick={() => comingSoon("Account")}
             className="hidden rounded-md p-2 text-foreground hover:bg-accent sm:block"
             aria-label="Account"
           >
@@ -210,7 +236,7 @@ export function Header() {
             Home
           </button>
           <button onClick={() => handleCategory("phones-tablets")} className="hidden rounded-md px-3 py-1.5 hover:bg-accent sm:block">
-            Phones & Tablets
+            Phones &amp; Tablets
           </button>
           <button onClick={() => handleCategory("computing-laptops")} className="hidden rounded-md px-3 py-1.5 hover:bg-accent sm:block">
             Computing
@@ -219,7 +245,7 @@ export function Header() {
             Fashion
           </button>
           <button onClick={() => handleCategory("home-appliances")} className="hidden rounded-md px-3 py-1.5 hover:bg-accent sm:block">
-            Home & Appliances
+            Home &amp; Appliances
           </button>
           <span className="ml-auto hidden items-center gap-1 text-xs font-semibold text-cta lg:flex">
             <Truck className="size-4" /> Free delivery on orders over &#8358;25,000
@@ -253,11 +279,11 @@ export function Header() {
               </div>
               <div className="flex flex-col p-2">
                 <MobileLink icon={<LayoutDashboard className="size-4" />} label="Sanity Studio Demo" onClick={() => { setMobileMenuOpen(false); setStudioOpen(true); }} />
-                <MobileLink icon={<User className="size-4" />} label="Log In" />
-                <MobileLink icon={<User className="size-4" />} label="Sign Up" />
-                <MobileLink icon={<Truck className="size-4" />} label="Sell on Trivera" />
-                <MobileLink icon={<Phone className="size-4" />} label="Customer Care" />
-                <MobileLink icon={<ListOrdered className="size-4" />} label="Track My Order" />
+                <MobileLink icon={<User className="size-4" />} label="Log In" onClick={() => comingSoon("Log In")} />
+                <MobileLink icon={<User className="size-4" />} label="Sign Up" onClick={() => comingSoon("Sign Up")} />
+                <MobileLink icon={<Truck className="size-4" />} label="Sell on Trivera" onClick={() => comingSoon("Sell on Trivera")} />
+                <MobileLink icon={<Phone className="size-4" />} label="Customer Care" onClick={() => comingSoon("Customer Care")} />
+                <MobileLink icon={<ListOrdered className="size-4" />} label="Track My Order" onClick={() => comingSoon("Track My Order")} />
               </div>
               <div className="border-t border-border p-2">
                 <p className="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -291,7 +317,7 @@ function MobileLink({ icon, label, onClick }: { icon: React.ReactNode; label: st
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-3 rounded-md px-3 py-2.5 text-left text-sm font-medium hover:bg-accent"
+      className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-sm font-medium hover:bg-accent"
     >
       <span className="text-cta">{icon}</span>
       {label}

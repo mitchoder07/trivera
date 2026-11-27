@@ -2,53 +2,65 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 interface Slide {
   id: string;
-  eyebrow: string;
+  badge: string;
   title: string;
   subtitle: string;
   cta: string;
+  discount?: string;
   bg: string;
   accent: string;
+  textColor: string;
   image: string;
   imageAlt: string;
+  align: "left" | "right";
 }
 
 const SLIDES: Slide[] = [
   {
     id: "black-friday",
-    eyebrow: "Limited time",
+    badge: "Limited time",
     title: "Black Friday Deals",
     subtitle: "Up to 40% off phones, laptops and home appliances. Stock moves fast.",
     cta: "Shop deals",
-    bg: "linear-gradient(135deg, #1a1a1a 0%, #2d1b2e 100%)",
+    discount: "40% OFF",
+    bg: "linear-gradient(120deg, #0f0f0f 0%, #2d1b2e 60%, #1a1a1a 100%)",
     accent: "#f97316",
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80&auto=format&fit=crop",
+    textColor: "#ffffff",
+    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80&auto=format&fit=crop",
     imageAlt: "Black Friday shopping bags and gift boxes",
+    align: "left",
   },
   {
     id: "new-tech",
-    eyebrow: "Just landed",
-    title: "New Arrivals in Tech",
-    subtitle: "Fresh smartphones and laptops from Samsung, Tecno, HP and Lenovo.",
+    badge: "Just landed",
+    title: "New Tech, Fresh Prices",
+    subtitle: "Samsung, Tecno, HP and Lenovo. Latest smartphones and laptops in stock.",
     cta: "Explore tech",
-    bg: "linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%)",
-    accent: "#db2777",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80&auto=format&fit=crop",
+    discount: "From ₦124,500",
+    bg: "linear-gradient(120deg, #1e1b4b 0%, #4c1d95 50%, #1a1a2e 100%)",
+    accent: "#fbbf24",
+    textColor: "#ffffff",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&auto=format&fit=crop",
     imageAlt: "Laptop and smartphone on a desk",
+    align: "right",
   },
   {
     id: "fashion-week",
-    eyebrow: "Trending now",
+    badge: "Trending now",
     title: "Fashion Week Sale",
     subtitle: "Ankara, Agbada and ready-to-wear from Lagos and Kano tailors.",
     cta: "Shop fashion",
-    bg: "linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%)",
-    accent: "#db2777",
-    image: "https://images.unsplash.com/photo-1583394838336-acd977676fbd?w=900&q=80&auto=format&fit=crop",
+    discount: "UP TO 30% OFF",
+    bg: "linear-gradient(120deg, #831843 0%, #be185d 50%, #4a044e 100%)",
+    accent: "#fde047",
+    textColor: "#ffffff",
+    image: "https://images.unsplash.com/photo-1583394838336-acd977676fbd?w=1200&q=80&auto=format&fit=crop",
     imageAlt: "African wax print fashion on a model",
+    align: "left",
   },
 ];
 
@@ -60,7 +72,7 @@ export function HeroCarousel() {
     if (paused) return;
     const t = setInterval(() => {
       setIndex((i) => (i + 1) % SLIDES.length);
-    }, 5000);
+    }, 5500);
     return () => clearInterval(t);
   }, [paused]);
 
@@ -71,7 +83,7 @@ export function HeroCarousel() {
 
   return (
     <div
-      className="relative overflow-hidden rounded-xl"
+      className="relative overflow-hidden rounded-xl shadow-lg"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-roledescription="carousel"
@@ -79,64 +91,111 @@ export function HeroCarousel() {
       <AnimatePresence mode="wait">
         <motion.div
           key={slide.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative grid min-h-[260px] grid-cols-1 sm:min-h-[340px] md:grid-cols-2"
-          style={{ background: slide.bg }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative min-h-[300px] sm:min-h-[380px] md:min-h-[440px]"
         >
-          <div className="flex flex-col justify-center gap-3 p-6 sm:p-10">
-            <span
-              className="w-fit rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide text-white"
-              style={{ background: slide.accent }}
-            >
-              {slide.eyebrow}
-            </span>
-            <h2 className="text-3xl font-extrabold leading-tight text-foreground sm:text-5xl">
-              {slide.title}
-            </h2>
-            <p className="max-w-md text-sm text-foreground/80 sm:text-base">
-              {slide.subtitle}
-            </p>
-            <button
-              className="mt-2 w-fit rounded-md px-6 py-3 text-sm font-bold text-white shadow-md transition-transform hover:scale-105"
-              style={{ background: slide.accent }}
-            >
-              {slide.cta}
-            </button>
-          </div>
-          <div className="relative hidden md:block">
-            <img
-              src={slide.image}
-              alt={slide.imageAlt}
-              className="absolute inset-0 size-full object-cover"
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(90deg, ${slide.bg.split(")")[0]} 0%, transparent 60%)`,
-              }}
-            />
+          {/* Background image, full bleed */}
+          <img
+            src={slide.image}
+            alt={slide.imageAlt}
+            className="absolute inset-0 size-full object-cover"
+            loading="eager"
+          />
+          {/* Gradient overlay for text legibility */}
+          <div
+            className="absolute inset-0"
+            style={{ background: slide.bg }}
+          />
+          {/* Subtle pattern overlay for texture */}
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%)",
+            }}
+          />
+
+          {/* Content */}
+          <div
+            className={`relative flex h-full items-center ${
+              slide.align === "right" ? "justify-end" : "justify-start"
+            }`}
+          >
+            <div className="max-w-xl p-6 sm:p-10 md:p-14">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.5 }}
+                className="flex items-center gap-2"
+              >
+                <span
+                  className="rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider"
+                  style={{ background: slide.accent, color: "#1a1a1a" }}
+                >
+                  {slide.badge}
+                </span>
+                {slide.discount && (
+                  <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                    {slide.discount}
+                  </span>
+                )}
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.5 }}
+                className="mt-3 text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl"
+                style={{ color: slide.textColor }}
+              >
+                {slide.title}
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.5 }}
+                className="mt-3 max-w-md text-sm sm:text-base md:text-lg"
+                style={{ color: slide.textColor, opacity: 0.9 }}
+              >
+                {slide.subtitle}
+              </motion.p>
+
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.5 }}
+                className="group mt-5 inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl sm:text-base"
+                style={{ background: slide.accent, color: "#1a1a1a" }}
+              >
+                {slide.cta}
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>
 
+      {/* Prev / Next arrows (desktop) */}
       <button
         onClick={() => go(-1)}
         aria-label="Previous slide"
-        className="absolute left-2 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/80 p-1.5 text-foreground shadow hover:bg-white sm:block"
+        className="absolute left-2 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition-all hover:bg-white/40 sm:block"
       >
         <ChevronLeft className="size-5" />
       </button>
       <button
         onClick={() => go(1)}
         aria-label="Next slide"
-        className="absolute right-2 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/80 p-1.5 text-foreground shadow hover:bg-white sm:block"
+        className="absolute right-2 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition-all hover:bg-white/40 sm:block"
       >
         <ChevronRight className="size-5" />
       </button>
 
+      {/* Dots */}
       <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
         {SLIDES.map((s, i) => (
           <button
@@ -145,8 +204,8 @@ export function HeroCarousel() {
             aria-label={`Go to slide ${i + 1}`}
             className={
               i === index
-                ? "h-2 w-8 rounded-full bg-white"
-                : "h-2 w-2 rounded-full bg-white/60"
+                ? "h-2 w-8 rounded-full bg-white transition-all"
+                : "h-2 w-2 rounded-full bg-white/50 transition-all hover:bg-white/80"
             }
           />
         ))}
