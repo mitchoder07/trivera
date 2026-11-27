@@ -12,7 +12,6 @@ import {
   Truck,
   User,
   X,
-  LayoutDashboard,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
@@ -22,7 +21,6 @@ import { useCategories } from "./use-sanity";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "./wordmark";
 import { CategoryIcon } from "./category-icon";
-import { SanityStudioModal } from "./sanity-studio-modal";
 
 export function Header() {
   const itemCount = useCartStore((s) => s.itemCount());
@@ -31,7 +29,6 @@ export function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
-  const [studioOpen, setStudioOpen] = useState(false);
   const { data: categories } = useCategories();
 
   const submitSearch = (e: React.FormEvent) => {
@@ -82,13 +79,6 @@ export function Header() {
             </button>
           </div>
           <div className="flex items-center gap-4 py-1.5">
-            <button
-              onClick={() => setStudioOpen(true)}
-              className="flex items-center gap-1 font-medium text-cta transition-colors hover:text-white"
-            >
-              <LayoutDashboard className="size-3" /> View Sanity Studio Demo
-            </button>
-            <span className="text-white/30">|</span>
             <button
               onClick={() => comingSoon("Log In")}
               className="flex items-center gap-1 transition-colors hover:text-cta"
@@ -278,7 +268,6 @@ export function Header() {
                 </button>
               </div>
               <div className="flex flex-col p-2">
-                <MobileLink icon={<LayoutDashboard className="size-4" />} label="Sanity Studio Demo" onClick={() => { setMobileMenuOpen(false); setStudioOpen(true); }} />
                 <MobileLink icon={<User className="size-4" />} label="Log In" onClick={() => comingSoon("Log In")} />
                 <MobileLink icon={<User className="size-4" />} label="Sign Up" onClick={() => comingSoon("Sign Up")} />
                 <MobileLink icon={<Truck className="size-4" />} label="Sell on Trivera" onClick={() => comingSoon("Sell on Trivera")} />
@@ -307,8 +296,6 @@ export function Header() {
           </>
         )}
       </AnimatePresence>
-
-      <SanityStudioModal open={studioOpen} onOpenChange={setStudioOpen} />
     </header>
   );
 }
