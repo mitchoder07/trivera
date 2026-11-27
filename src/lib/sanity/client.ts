@@ -1,5 +1,5 @@
-import { createClient, type SanityClient } from "@sanity/client";
-import imageUrlBuilder, { type ImageUrlBuilder } from "@sanity/image-url";
+import { createClient } from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 import mockData from "@/data/sanity-mock.json";
 
 /**
@@ -15,9 +15,10 @@ import mockData from "@/data/sanity-mock.json";
  *   NEXT_PUBLIC_SANITY_PROJECT_ID  = 0ax9v9qq
  *   NEXT_PUBLIC_SANITY_DATASET     = production
  *
- * If env vars are missing, we fall back to the mock dataset so the site
- * always renders instead of crashing. This is what makes the difference
- * between a "client-side exception" page and a working storefront.
+ * If env vars are missing or Sanity init fails, we fall back to the mock
+ * dataset so the site always renders instead of crashing. This is what
+ * makes the difference between a "client-side exception" page and a
+ * working storefront.
  */
 
 const projectId =
@@ -30,21 +31,24 @@ const dataset =
   process.env.SANITY_DATASET ||
   "production";
 
-let client: SanityClient | null = null;
-let builder: ImageUrlBuilder | null = null;
+// Try to construct the real Sanity client. If env vars are missing or
+// construction throws, we keep realClient as null and route all fetch
+// calls through the mock fetcher instead. The site never crashes.
+let realClient: ReturnType<typeof createClient> | null = null;
+let builder: ReturnType<typeof imageUrlBuilder> | null = null;
 
 if (projectId) {
   try {
-    client = createClient({
+    realClient = createClient({
       projectId,
       dataset,
       apiVersion: "2024-10-01",
       useCdn: true,
     });
-    builder = imageUrlBuilder(client);
+    builder = imageUrlBuilder(realClient);
   } catch (err) {
     console.error("[trivera] Sanity client init failed, falling back to mock:", err);
-    client = null;
+    realClient = null;
     builder = null;
   }
 } else {
@@ -53,7 +57,23 @@ if (projectId) {
   );
 }
 
-export { client };
+/**
+ * Public client object. Always non-null so consumers (use-sanity.ts)
+ * can call client.fetch(...) without TypeScript complaining about null.
+ * Internally routes to the real Sanity client if available, otherwise
+ * falls back to the mock dataset.
+ */
+export const client = {
+  fetch<T = unknown>(
+    query: string,
+    params: Record<string, unknown> = {}
+  ): Promise<T> {
+    if (realClient) {
+      return realClient.fetch<T>(query, params);
+    }
+    return mockFetch<T>(query, params);
+  },
+};
 
 export function urlFor(source: unknown) {
   if (!builder) {
@@ -62,14 +82,14 @@ export function urlFor(source: unknown) {
   return builder.image(source as never);
 }
 
+/**
+ * Fetch helper (same as client.fetch, exported as a convenience).
+ */
 export async function fetch<T = unknown>(
   query: string,
   params: Record<string, unknown> = {}
 ): Promise<T> {
-  if (client) {
-    return client.fetch<T>(query, params);
-  }
-  return mockFetch<T>(query, params);
+  return client.fetch<T>(query, params);
 }
 
 /**
